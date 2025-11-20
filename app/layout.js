@@ -48,9 +48,14 @@ export const metadata = {
     "og:image": "https://sense-original-nextjs.vercel.app/opengraph-image.png",
     "og:image:width": "1200",
     "og:image:height": "630",
+    "og:image:type": "image/png",
+    "og:type": "website",
+    "og:title": "SenseOriginal - Counterfeit Protection & Product Authentication",
+    "og:description": "Advanced NFC-based product authentication. Protect your brand from counterfeits.",
+    "og:url": "https://sense-original-nextjs.vercel.app",
     "msapplication-TileImage":
       "https://sense-original-nextjs.vercel.app/opengraph-image.png",
-    "msapplication-TileColor": "#ffffff",
+    "msapplication-TileColor": "#6B7280",
     
   },
 };
