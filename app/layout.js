@@ -21,13 +21,12 @@ export const metadata = {
       "Advanced NFC-based product authentication. Protect your brand from counterfeits.",
     images: [
       {
-        url: "https://sense-original-nextjs.vercel.app/opengraph-image.png",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "SenseOriginal - Product Authentication",
       },
     ],
-    siteName: "SenseOriginal",
   },
 
   twitter: {
@@ -35,21 +34,22 @@ export const metadata = {
     title: "SenseOriginal - Counterfeit Protection & Product Authentication",
     description:
       "Advanced NFC-based product authentication. Protect your brand from counterfeits.",
-    images: ["https://sense-original-nextjs.vercel.app/opengraph-image.png"],
+    images: ["/opengraph-image.png"],
   },
 
-  // EXTRA: Microsoft Teams + WhatsApp required meta tags
+  // EXTRA FOR WHATSAPP + TEAMS
   other: {
-  "og:image": "https://sense-original-nextjs.vercel.app/opengraph-image.png",
-  "og:image:width": "1200",
-  "og:image:height": "630",
-  "msapplication-TileImage":
-    "https://sense-original-nextjs.vercel.app/opengraph-image.png",
-  "msapplication-TileColor": "#BDBDBD", // or your preferred gray
-  "theme-color": "#BDBDBD",
-},
+    "og:image": "https://sense-original-nextjs.vercel.app/opengraph-image.png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
 
+    "msapplication-TileImage":
+      "https://sense-original-nextjs.vercel.app/opengraph-image.png",
+    "msapplication-TileColor": "#BDBDBD",
+    "theme-color": "#BDBDBD",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
