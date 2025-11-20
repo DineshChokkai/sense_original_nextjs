@@ -50,10 +50,10 @@ const IndustriesParallax = () => {
     const handleScroll = () => {
       rowRefs.current.forEach((row, index) => {
         if (!row) return;
-        
+
         const rect = row.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        
+
         // Row becomes visible when it enters viewport
         if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
           setVisibleRows((prev) => {
@@ -66,10 +66,10 @@ const IndustriesParallax = () => {
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Split industries into rows (3 per row)
@@ -89,12 +89,12 @@ const IndustriesParallax = () => {
 
       <div className="container mx-auto px-6 space-y-8">
         {/* First Row */}
-        <div 
+        <div
           ref={(el) => (rowRefs.current[0] = el)}
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-1000 ease-out ${
-            visibleRows.includes(0) 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-20'
+            visibleRows.includes(0)
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-20"
           }`}
         >
           {firstRow.map((industry, idx) => (
@@ -103,10 +103,12 @@ const IndustriesParallax = () => {
               onMouseEnter={() => setHoveredId(industry.id)}
               onMouseLeave={() => setHoveredId(null)}
               className={`relative w-full rounded-2xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl ${
-                visibleRows.includes(0) ? 'delay-' + (idx * 150) : ''
+                visibleRows.includes(0) ? "delay-" + idx * 150 : ""
               }`}
               style={{
-                transitionDelay: visibleRows.includes(0) ? `${idx * 150}ms` : '0ms'
+                transitionDelay: visibleRows.includes(0)
+                  ? `${idx * 150}ms`
+                  : "0ms",
               }}
             >
               {/* Background Image */}
@@ -118,7 +120,7 @@ const IndustriesParallax = () => {
                   height={320}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
-                
+
                 {/* Title at bottom - always visible */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -129,29 +131,30 @@ const IndustriesParallax = () => {
 
               {/* Gradient Overlay with content - shows on hover */}
               <div
-                className={`absolute inset-0 bg-gradient-to-tr ${industry.color} backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
-  hoveredId === industry.id ? "opacity-100 visible" : "opacity-0 invisible"
-}`}
-
+                className={`absolute inset-0 bg-gradient-to-tr ${
+                  industry.color
+                } backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
+                  hoveredId === industry.id
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible"
+                }`}
               >
-                <div className="bg-white/30 backdrop-blur-sm p-5 rounded-full mb-4 transform transition-transform duration-500 shadow-lg"
+                <div
+                  className="bg-white/30 backdrop-blur-sm p-5 rounded-full mb-4 transform transition-transform duration-500 shadow-lg"
                   style={{
-                    transform: hoveredId === industry.id ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(-180deg)'
+                    transform:
+                      hoveredId === industry.id
+                        ? "scale(1) rotate(0deg)"
+                        : "scale(0.5) rotate(-180deg)",
                   }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-10 h-10 text-white"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+                    fill="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12l2 2 4-4m1-5a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
+                    <path d="M12 2l3 2 3-.5 1.5 2.6L22 9l-1 3 1 3-2.5 2.9L18 20l-3-.5-3 2-3-2-3 .5-1.5-2.6L2 15l1-3-1-3 2.5-2.9L6 4l3 .5 3-2zm-2 12l6-6-1.4-1.4-4.6 4.6-2.2-2.2L6.4 10 10 14z" />
                   </svg>
                 </div>
                 <p className="text-lg font-medium mb-2">Verified Authentic</p>
@@ -165,12 +168,12 @@ const IndustriesParallax = () => {
         </div>
 
         {/* Second Row */}
-        <div 
+        <div
           ref={(el) => (rowRefs.current[1] = el)}
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-1000 ease-out ${
-            visibleRows.includes(1) 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-20'
+            visibleRows.includes(1)
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-20"
           }`}
         >
           {secondRow.map((industry, idx) => (
@@ -180,7 +183,9 @@ const IndustriesParallax = () => {
               onMouseLeave={() => setHoveredId(null)}
               className={`relative w-full rounded-2xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl`}
               style={{
-                transitionDelay: visibleRows.includes(1) ? `${idx * 150}ms` : '0ms'
+                transitionDelay: visibleRows.includes(1)
+                  ? `${idx * 150}ms`
+                  : "0ms",
               }}
             >
               {/* Background Image */}
@@ -192,7 +197,7 @@ const IndustriesParallax = () => {
                   height={320}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
-                
+
                 {/* Title at bottom - always visible */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -203,30 +208,30 @@ const IndustriesParallax = () => {
 
               {/* Gradient Overlay with content - shows on hover */}
               <div
-                className={`absolute inset-0 bg-gradient-to-tr ${industry.color} backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
-                  hoveredId === industry.id 
-                    ? 'opacity-100 visible' 
-                    : 'opacity-0 invisible'
+                className={`absolute inset-0 bg-gradient-to-tr ${
+                  industry.color
+                } backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
+                  hoveredId === industry.id
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible"
                 }`}
               >
-                <div className="bg-white/30 backdrop-blur-sm p-5 rounded-full mb-4 transform transition-transform duration-500 shadow-lg"
+                <div
+                  className="bg-white/30 backdrop-blur-sm p-5 rounded-full mb-4 transform transition-transform duration-500 shadow-lg"
                   style={{
-                    transform: hoveredId === industry.id ? 'scale(1) rotate(0deg)' : 'scale(0.5) rotate(-180deg)'
+                    transform:
+                      hoveredId === industry.id
+                        ? "scale(1) rotate(0deg)"
+                        : "scale(0.5) rotate(-180deg)",
                   }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-10 h-10 text-white"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+                    fill="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12l2 2 4-4m1-5a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
+                    <path d="M12 2l3 2 3-.5 1.5 2.6L22 9l-1 3 1 3-2.5 2.9L18 20l-3-.5-3 2-3-2-3 .5-1.5-2.6L2 15l1-3-1-3 2.5-2.9L6 4l3 .5 3-2zm-2 12l6-6-1.4-1.4-4.6 4.6-2.2-2.2L6.4 10 10 14z" />
                   </svg>
                 </div>
                 <p className="text-lg font-medium mb-2">Verified Authentic</p>
@@ -251,4 +256,3 @@ const IndustriesParallax = () => {
 };
 
 export default IndustriesParallax;
-
