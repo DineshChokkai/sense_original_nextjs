@@ -41,12 +41,12 @@ export const metadata = {
   // EXTRA: Microsoft Teams + WhatsApp required meta tags
   other: {
     "og:image": "https://sense-original-nextjs.vercel.app/opengraph-image.png",
-    "og:image:width": "600",
+    "og:image:width": "1200",
     "og:image:height": "630",
     "msapplication-TileImage":
       "https://sense-original-nextjs.vercel.app/opengraph-image.png",
     "msapplication-TileColor": "#ffffff",
-    "theme-color": "#ffffff",
+    
   },
 };
 
