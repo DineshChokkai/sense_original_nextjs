@@ -22,7 +22,7 @@ export const metadata = {
     description: 'Advanced NFC-based product authentication. Protect your brand from counterfeits with SenseOriginal\'s real-time verification system.',
     images: [
       {
-        url: '/assets/og-image.png',
+        url: '/images/brandlogo.png',
         width: 1200,
         height: 630,
         alt: 'SenseOriginal - Product Authentication',
