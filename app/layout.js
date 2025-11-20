@@ -13,6 +13,11 @@ export const metadata = {
   description:
     "SenseOriginal provides NFC-based authentication & anti-counterfeiting technology with real-time verification and brand protection.",
 
+  icons: {
+    icon: "/vite.png",
+    // apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
     type: "website",
     url: "https://sense-original-nextjs.vercel.app",
