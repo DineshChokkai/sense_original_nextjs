@@ -414,9 +414,14 @@ const ProductVerificationSection = () => {
         {/* Download Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12 pb-8">
           <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-5 rounded-full flex items-center justify-center gap-3 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 font-semibold text-lg">
-            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.523 15.341c-.801-.753-1.373-1.741-1.672-2.818-.299-1.078-.326-2.221-.078-3.312.248-1.091.769-2.092 1.514-2.897.745-.806 1.691-1.388 2.741-1.686-1.268-1.651-3.243-2.628-5.317-2.628-3.036 0-5.5 2.464-5.5 5.5v1c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5v-1c0-4.687 3.813-8.5 8.5-8.5 2.799 0 5.389 1.379 6.956 3.683 1.212.313 2.301.963 3.149 1.885.849.922 1.433 2.078 1.693 3.347.26 1.269.184 2.582-.221 3.801-.404 1.22-1.123 2.307-2.08 3.147l-5.685 5.028v-5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5v1.783l2.477-2.189z" />
-            </svg>
+            <svg 
+  className="w-7 h-7" 
+  viewBox="0 0 24 24" 
+  fill="currentColor"
+>
+  <path d="M17.6 8.04l1.3-2.25a.5.5 0 10-.86-.5l-1.33 2.3A6.98 6.98 0 0012 6c-1.72 0-3.3.62-4.71 1.59L5.96 5.3a.5.5 0 10-.86.5l1.28 2.22A6.96 6.96 0 005 13v3a1 1 0 001 1h1v2a1 1 0 102 0v-2h6v2a1 1 0 102 0v-2h1a1 1 0 001-1v-3a6.96 6.96 0 00-2.4-4.96zM9 10a1 1 0 110 2 1 1 0 010-2zm6 0a1 1 0 110 2 1 1 0 010-2z" />
+</svg>
+
             Download Android App
           </button>
 
