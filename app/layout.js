@@ -46,6 +46,7 @@ export const metadata = {
     "msapplication-TileImage":
       "https://sense-original-nextjs.vercel.app/opengraph-image.png",
     "msapplication-TileColor": "#ffffff",
+    "theme-color": "#ffffff",
   },
 };
 
