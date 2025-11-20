@@ -1,11 +1,12 @@
 import './globals.css';
 import { Inter, Outfit } from 'next/font/google';
 import LenisScroll from './LenisScroll';
-import Logo from '../public/images/brandlogo.png';
+
 const inter = Inter({ subsets: ['latin'] });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata = {
+  metadataBase: new URL("https://sense-original-nextjs.vercel.app"),
   title: 'SenseOriginal - Counterfeit Protection & Product Authentication',
   description: 'SenseOriginal provides advanced NFC-based product authentication and anti-counterfeiting solutions. Protect your brand with real-time verification, tamper-proof technology, and customer trust.',
   keywords: 'SenseOriginal, product authentication, anti-counterfeiting, NFC authentication, counterfeit protection, brand protection, product verification, genuine products, anti-fake, product authenticity',
@@ -17,12 +18,12 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://senseoriginal.com/',
+    url: "https://sense-original-nextjs.vercel.app/",
     title: 'SenseOriginal - Counterfeit Protection & Product Authentication',
     description: 'Advanced NFC-based product authentication. Protect your brand from counterfeits with SenseOriginal\'s real-time verification system.',
     images: [
       {
-        url: Logo,
+        url: "https://sense-original-nextjs.vercel.app/images/brandlogo.png",
         width: 1200,
         height: 630,
         alt: 'SenseOriginal - Product Authentication',
@@ -34,7 +35,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'SenseOriginal - Counterfeit Protection & Product Authentication',
     description: 'Advanced NFC-based product authentication. Protect your brand from counterfeits with real-time verification.',
-    images: ['/assets/og-image.png'],
+    images: ['https://sense-original-nextjs.vercel.app/images/brandlogo.png'],
   },
 };
 
