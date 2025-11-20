@@ -1,7 +1,7 @@
 import './globals.css';
 import { Inter, Outfit } from 'next/font/google';
 import LenisScroll from './LenisScroll';
-
+import Logo from '../public/images/brandlogo.png';
 const inter = Inter({ subsets: ['latin'] });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
@@ -22,7 +22,7 @@ export const metadata = {
     description: 'Advanced NFC-based product authentication. Protect your brand from counterfeits with SenseOriginal\'s real-time verification system.',
     images: [
       {
-        url: '/images/brandlogo.png',
+        url: Logo,
         width: 1200,
         height: 630,
         alt: 'SenseOriginal - Product Authentication',
