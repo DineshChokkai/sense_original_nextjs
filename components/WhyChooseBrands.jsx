@@ -4,9 +4,11 @@ import Brand1 from "../public/images/brand1.png";
 import Brand2 from "../public/images/brand2.png";
 import Brand3 from "../public/images/brand3.png";
 import Brand4 from "../public/images/brand4.png";
+
 const WhyChooseSection = () => {
-  const [activeCard, setActiveCard] = useState(0); // 👈 default card stays active
+  const [activeCard, setActiveCard] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // 👈 SAFE FLAG FOR WINDOW CHECK
   const sectionRef = useRef(null);
 
   const cards = [
@@ -35,6 +37,14 @@ const WhyChooseSection = () => {
       image: Brand4,
     },
   ];
+
+  // Detect screen width safely (avoids window undefined)
+  useEffect(() => {
+    const updateSize = () => setIsMobile(window.innerWidth < 768);
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   // Parallax scroll effect
   useEffect(() => {
@@ -83,73 +93,70 @@ const WhyChooseSection = () => {
 
         {/* Cards Grid */}
         <div className="max-w-[1500px] mx-auto flex flex-col md:flex-row flex-wrap gap-2.5 p-2.5 justify-center items-center">
-  {cards.map((card, index) => {
-    const delay = index * 0.1;
-    const cardProgress = Math.max(
-      0,
-      Math.min(1, (scrollProgress - delay) / (1 - delay))
-    );
-    const isActive = activeCard === index;
+          {cards.map((card, index) => {
+            const delay = index * 0.1;
+            const cardProgress = Math.max(
+              0,
+              Math.min(1, (scrollProgress - delay) / (1 - delay))
+            );
+            const isActive = activeCard === index;
 
-    return (
-      <div
-        key={card.id}
-        className="relative group cursor-pointer w-full sm:w-[80%] md:w-auto transition-all duration-700 ease-out"
-        onMouseEnter={() => setActiveCard(index)}
-        onMouseLeave={() => setActiveCard(0)}
-        style={{
-          transform: `translateY(${(1 - cardProgress) * 50}px)`,
-          flex:
-            isActive && window.innerWidth >= 768 ? "1.8 1 0%" : "1 1 0%",
-          transition: "all 0.7s ease-out",
-        }}
-      >
-        <div
-          className="relative rounded-3xl border border-black/50 overflow-hidden 
-                     w-full max-w-[380px] md:max-w-none mx-auto 
-                     h-[300px] sm:h-[350px] md:h-[420px] lg:h-[460px] 
-                     transition-all duration-700 ease-out"
-        >
-          {/* Image with overlay */}
-          <div className="absolute inset-0">
-            <Image
-              src={card.image}
-              alt={card.title}
-              width={380}
-              height={460}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              style={{ filter: "brightness(0.7)" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          </div>
+            return (
+              <div
+                key={card.id}
+                className="relative group cursor-pointer w-full sm:w-[80%] md:w-auto transition-all duration-700 ease-out"
+                onMouseEnter={() => setActiveCard(index)}
+                onMouseLeave={() => setActiveCard(0)}
+                style={{
+                  transform: `translateY(${(1 - cardProgress) * 50}px)`,
 
-          {/* Content Overlay */}
-          <div
-            className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-9 transition-all duration-700 ease-out ${
-              isActive
-                ? "translate-y-0 opacity-100"
-                : "translate-y-full opacity-0"
-            }`}
-          >
-            <h3
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight mb-2 sm:mb-3"
-            >
-              {card.title}
-            </h3>
-            <p
-              className="text-sm sm:text-base md:text-lg text-[#B2B2B2] leading-snug sm:leading-6"
-            >
-              {card.description}
-            </p>
-          </div>
+                  // ❗ SAFE: no window access
+                  flex: isActive && !isMobile ? "1.8 1 0%" : "1 1 0%",
+
+                  transition: "all 0.7s ease-out",
+                }}
+              >
+                <div
+                  className="relative rounded-3xl border border-black/50 overflow-hidden 
+                            w-full max-w-[380px] md:max-w-none mx-auto 
+                            h-[300px] sm:h-[350px] md:h-[420px] lg:h-[460px] 
+                            transition-all duration-700 ease-out"
+                >
+                  {/* Image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      width={380}
+                      height={460}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ filter: "brightness(0.7)" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
+
+                  {/* Text Overlay */}
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-9 transition-all duration-700 ease-out ${
+                      isActive
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-full opacity-0"
+                    }`}
+                  >
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight mb-2 sm:mb-3">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm sm:text-base md:text-lg text-[#B2B2B2] leading-snug sm:leading-6">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </div>
-    );
-  })}
-</div>
 
-
-        {/* Mobile Navigation Dots */}
+        {/* Mobile Dots */}
         <div className="flex justify-center gap-2 mt-8 md:hidden">
           {cards.map((card, index) => (
             <button
