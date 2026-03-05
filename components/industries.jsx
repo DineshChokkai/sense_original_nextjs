@@ -237,7 +237,7 @@ const IndustriesParallax = () => {
                 <p className="text-lg font-medium mb-2">Verified Authentic</p>
                 <h3 className="text-3xl font-bold">{industry.title}</h3>
                 <p className="text-sm mt-3 opacity-90 px-6">
-                  Protecting authenticity and building trust
+                  Protecting authenticity and building trust.
                 </p>
               </div>
             </div>
