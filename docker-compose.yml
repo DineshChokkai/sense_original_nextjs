@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: sense2
+    build: .
+    ports:
+      - "5173:5173"
+    restart: unless-stopped
