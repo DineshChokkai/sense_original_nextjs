@@ -25,7 +25,7 @@ RUN npm install -g http-server
 COPY --from=builder /app/out ./out
 
 # Expose port
-EXPOSE 3000
+EXPOSE 5173
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
