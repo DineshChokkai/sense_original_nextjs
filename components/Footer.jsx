@@ -43,7 +43,7 @@ const Footer = ({ onOpenContactForm }) => {
         {/* Left Heading */}
         <div className="text-center md:text-left">
           <p className="text-blue-400 text-sm mb-2">
-            Be Originals, Buy Originals Verify by Sense Original
+            Be Originals, Buy Originals Verify by Sense Originals
           </p>
 
           <h2 className="text-4xl md:text-5xl font-semibold text-white flex items-center gap-2 justify-center md:justify-start">
