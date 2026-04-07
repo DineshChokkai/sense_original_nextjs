@@ -1,42 +1,42 @@
-import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
+import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 
 const industries = [
   {
     id: 1,
-    title: "FMCG",
-    color: "from-blue-400/80 to-blue-700/80",
-    image: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800",
+    title: 'FMCG',
+    color: 'from-blue-400/80 to-blue-700/80',
+    image: 'https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800',
   },
   {
     id: 2,
-    title: "Electronics",
-    color: "from-cyan-400/80 to-sky-700/80",
-    image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800",
+    title: 'Electronics',
+    color: 'from-cyan-400/80 to-sky-700/80',
+    image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800',
   },
   {
     id: 3,
-    title: "Liquor",
-    color: "from-amber-500/80 to-orange-700/80",
-    image: "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=800",
+    title: 'Liquor',
+    color: 'from-amber-500/80 to-orange-700/80',
+    image: 'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=800',
   },
   {
     id: 4,
-    title: "Pharmaceuticals",
-    color: "from-green-400/80 to-teal-700/80",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800",
+    title: 'Pharmaceuticals',
+    color: 'from-green-400/80 to-teal-700/80',
+    image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800',
   },
   {
     id: 5,
-    title: "Luxury Goods",
-    color: "from-pink-400/80 to-fuchsia-700/80",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
+    title: 'Luxury Goods',
+    color: 'from-pink-400/80 to-fuchsia-700/80',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800',
   },
   {
     id: 6,
-    title: "Automobile",
-    color: "from-indigo-500/80 to-purple-700/80",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800",
+    title: 'Automobile',
+    color: 'from-indigo-500/80 to-purple-700/80',
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800',
   },
 ];
 
@@ -66,10 +66,10 @@ const IndustriesParallax = () => {
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Split industries into rows (3 per row)
@@ -92,9 +92,7 @@ const IndustriesParallax = () => {
         <div
           ref={(el) => (rowRefs.current[0] = el)}
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-1000 ease-out ${
-            visibleRows.includes(0)
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-20"
+            visibleRows.includes(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}
         >
           {firstRow.map((industry, idx) => (
@@ -103,12 +101,10 @@ const IndustriesParallax = () => {
               onMouseEnter={() => setHoveredId(industry.id)}
               onMouseLeave={() => setHoveredId(null)}
               className={`relative w-full rounded-2xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl ${
-                visibleRows.includes(0) ? "delay-" + idx * 150 : ""
+                visibleRows.includes(0) ? 'delay-' + idx * 150 : ''
               }`}
               style={{
-                transitionDelay: visibleRows.includes(0)
-                  ? `${idx * 150}ms`
-                  : "0ms",
+                transitionDelay: visibleRows.includes(0) ? `${idx * 150}ms` : '0ms',
               }}
             >
               {/* Background Image */}
@@ -123,9 +119,7 @@ const IndustriesParallax = () => {
 
                 {/* Title at bottom - always visible */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    {industry.title}
-                  </h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">{industry.title}</h3>
                 </div>
               </div>
 
@@ -134,9 +128,7 @@ const IndustriesParallax = () => {
                 className={`absolute inset-0 bg-gradient-to-tr ${
                   industry.color
                 } backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
-                  hoveredId === industry.id
-                    ? "opacity-100 visible"
-                    : "opacity-0 invisible"
+                  hoveredId === industry.id ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
               >
                 <div
@@ -144,8 +136,8 @@ const IndustriesParallax = () => {
                   style={{
                     transform:
                       hoveredId === industry.id
-                        ? "scale(1) rotate(0deg)"
-                        : "scale(0.5) rotate(-180deg)",
+                        ? 'scale(1) rotate(0deg)'
+                        : 'scale(0.5) rotate(-180deg)',
                   }}
                 >
                   <svg
@@ -171,9 +163,7 @@ const IndustriesParallax = () => {
         <div
           ref={(el) => (rowRefs.current[1] = el)}
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-1000 ease-out ${
-            visibleRows.includes(1)
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-20"
+            visibleRows.includes(1) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}
         >
           {secondRow.map((industry, idx) => (
@@ -183,9 +173,7 @@ const IndustriesParallax = () => {
               onMouseLeave={() => setHoveredId(null)}
               className={`relative w-full rounded-2xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl`}
               style={{
-                transitionDelay: visibleRows.includes(1)
-                  ? `${idx * 150}ms`
-                  : "0ms",
+                transitionDelay: visibleRows.includes(1) ? `${idx * 150}ms` : '0ms',
               }}
             >
               {/* Background Image */}
@@ -200,9 +188,7 @@ const IndustriesParallax = () => {
 
                 {/* Title at bottom - always visible */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    {industry.title}
-                  </h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">{industry.title}</h3>
                 </div>
               </div>
 
@@ -211,9 +197,7 @@ const IndustriesParallax = () => {
                 className={`absolute inset-0 bg-gradient-to-tr ${
                   industry.color
                 } backdrop-blur-sm flex flex-col justify-center items-center text-white text-center transition-all duration-500 ${
-                  hoveredId === industry.id
-                    ? "opacity-100 visible"
-                    : "opacity-0 invisible"
+                  hoveredId === industry.id ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
               >
                 <div
@@ -221,8 +205,8 @@ const IndustriesParallax = () => {
                   style={{
                     transform:
                       hoveredId === industry.id
-                        ? "scale(1) rotate(0deg)"
-                        : "scale(0.5) rotate(-180deg)",
+                        ? 'scale(1) rotate(0deg)'
+                        : 'scale(0.5) rotate(-180deg)',
                   }}
                 >
                   <svg

@@ -1,31 +1,31 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 const Button = ({
-  variant = "primary",
+  variant = 'primary',
   children,
   icon,
   showIcon = false,
-  customStyles = "",
+  customStyles = '',
   onClick,
   disabled = false,
   shine = false,
   ...props
 }) => {
-  // Base styles 
+  // Base styles
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer relative overflow-hidden active:scale-95";
+    'inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer relative overflow-hidden active:scale-95';
 
   // Variant styles
   const variantStyles = {
     primary:
-      "bg-linear-blue text-white py-[10px] px-4 rounded-[10px] hover:bg-linear-blue-hover active:bg-linear-blue-active",
+      'bg-linear-blue text-white py-[10px] px-4 rounded-[10px] hover:bg-linear-blue-hover active:bg-linear-blue-active',
     secondary:
-      "bg-white text-linear-blue border border-linear-blue py-[10px] px-4 rounded-[10px] hover:bg-gray-50",
+      'bg-white text-linear-blue border border-linear-blue py-[10px] px-4 rounded-[10px] hover:bg-gray-50',
   };
 
   // Shine effect styles
-  const shineStyles = shine ? "group" : "";
+  const shineStyles = shine ? 'group' : '';
 
   return (
     <>
@@ -91,17 +91,21 @@ const Button = ({
           animation: shine-sweep 0.6s ease;
         }
       `}</style>
-      
+
       <button
         className={`${baseStyles} ${variantStyles[variant]} ${shineStyles} ${customStyles}`}
         onClick={onClick}
         disabled={disabled}
         {...props}
       >
-        {shine && <div className={variant === "secondary" ? "shine-overlay-secondary" : "shine-overlay"} />}
-        
+        {shine && (
+          <div className={variant === 'secondary' ? 'shine-overlay-secondary' : 'shine-overlay'} />
+        )}
+
         <span className="relative z-10 flex justify-center items-center">
-          {showIcon && icon && <Image src={icon} alt="" width={16} height={16} className="w-4 h-4 mr-2" />}
+          {showIcon && icon && (
+            <Image src={icon} alt="" width={16} height={16} className="w-4 h-4 mr-2" />
+          )}
           {children}
         </span>
       </button>

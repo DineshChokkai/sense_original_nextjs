@@ -1,17 +1,17 @@
-import React from "react";
-import CustomButton from "../components/CustomButton.jsx";
+import React from 'react';
+import CustomButton from '../components/CustomButton.jsx';
 
 const ReusableCard = ({
-  title = "Modal Title",
+  title = 'Modal Title',
   onClose,
   onCancel,
   onSave,
   children,
   isOpen = true,
   showButtons = true,
-  cancelText = "Cancel",
-  saveText = "Save",
-  width = "max-w-md",
+  cancelText = 'Cancel',
+  saveText = 'Save',
+  width = 'max-w-md',
 }) => {
   if (!isOpen) return null;
 
@@ -47,12 +47,7 @@ const ReusableCard = ({
             >
               {cancelText}
             </CustomButton>
-            <CustomButton
-              variant="primary"
-              onClick={onSave}
-              shine={true}
-              customStyles=" w-[180px]"
-            >
+            <CustomButton variant="primary" onClick={onSave} shine={true} customStyles=" w-[180px]">
               {saveText}
             </CustomButton>
           </div>

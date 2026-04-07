@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import frame63 from "../public/images/one.png";
-import frame631 from "../public/images/two.png";
-import { Phone, Play } from "lucide-react";
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import frame63 from '../public/images/one.png';
+import frame631 from '../public/images/two.png';
+import { Phone, Play } from 'lucide-react';
 
 const ReelsSection = ({ onOpenContact }) => {
   const textRef = useRef(null);
@@ -12,21 +12,18 @@ const ReelsSection = ({ onOpenContact }) => {
   const videos = [
     {
       id: 1,
-      url: "https://www.youtube.com/embed/vgja3deoVBo",
-      thumbnail: "https://img.youtube.com/vi/vgja3deoVBo/maxresdefault.jpg",
-      
+      url: 'https://www.youtube.com/embed/vgja3deoVBo',
+      thumbnail: 'https://img.youtube.com/vi/vgja3deoVBo/maxresdefault.jpg',
     },
     {
       id: 2,
-      url: "https://www.youtube.com/embed/KFoGbGpaKIc",
-      thumbnail: "https://img.youtube.com/vi/KFoGbGpaKIc/maxresdefault.jpg",
-      
+      url: 'https://www.youtube.com/embed/KFoGbGpaKIc',
+      thumbnail: 'https://img.youtube.com/vi/KFoGbGpaKIc/maxresdefault.jpg',
     },
     {
       id: 3,
-      url: "https://www.youtube.com/embed/g4hy4MwZjpU",
-      thumbnail: "https://img.youtube.com/vi/g4hy4MwZjpU/maxresdefault.jpg",
-     
+      url: 'https://www.youtube.com/embed/g4hy4MwZjpU',
+      thumbnail: 'https://img.youtube.com/vi/g4hy4MwZjpU/maxresdefault.jpg',
     },
   ];
 
@@ -35,7 +32,7 @@ const ReelsSection = ({ onOpenContact }) => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (textRef.current) observer.observe(textRef.current);
@@ -54,8 +51,6 @@ const ReelsSection = ({ onOpenContact }) => {
 
   return (
     <div className="relative w-full bg-white mt-[30px]">
-  
-
       {/* YouTube Shorts / Reels Section */}
       <div className="px-6 pt-10 md:px-16 pb-12 md:pb-16">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black mb-8">
@@ -104,9 +99,7 @@ const ReelsSection = ({ onOpenContact }) => {
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white text-sm font-medium">
-                      {video.title}
-                    </p>
+                    <p className="text-white text-sm font-medium">{video.title}</p>
                   </div>
                 </>
               )}

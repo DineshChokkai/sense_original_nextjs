@@ -1,50 +1,50 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const newsData = [
   {
     id: 1,
-    image: "/assets/news-author.png",
-    title: "We are in",
+    image: '/assets/news-author.png',
+    title: 'We are in',
     description:
       "Recognized as the most innovative startup at Asia's Business Excellence Awards for groundbreaking healthcare solutions.",
   },
   {
     id: 2,
-    image: "/assets/news-author.png",
+    image: '/assets/news-author.png',
     title: "Featured in Tech Magazine's Top 50 Startups",
     description:
-      "Our journey from a small team to becoming one of the most promising health-tech companies in the region.",
+      'Our journey from a small team to becoming one of the most promising health-tech companies in the region.',
   },
   {
     id: 3,
-    image: "/assets/news-author.png",
-    title: "Partnership with Leading Healthcare Provider",
+    image: '/assets/news-author.png',
+    title: 'Partnership with Leading Healthcare Provider',
     description:
-      "Expanding our reach to serve millions of patients through strategic collaboration with industry leaders.",
+      'Expanding our reach to serve millions of patients through strategic collaboration with industry leaders.',
   },
   {
     id: 4,
-    image: "/assets/news-author.png",
-    title: "Raised Series A Funding of $5M",
+    image: '/assets/news-author.png',
+    title: 'Raised Series A Funding of $5M',
     description:
-      "Secured major funding to accelerate product development and expand our team of healthcare professionals.",
+      'Secured major funding to accelerate product development and expand our team of healthcare professionals.',
   },
   {
     id: 5,
-    image: "/assets/news-author.png",
-    title: "Launched New AI-Powered Health Platform",
+    image: '/assets/news-author.png',
+    title: 'Launched New AI-Powered Health Platform',
     description:
-      "Introducing cutting-edge technology that revolutionizes patient care with personalized health insights.",
+      'Introducing cutting-edge technology that revolutionizes patient care with personalized health insights.',
   },
   {
     id: 6,
-    image: "/assets/news-author.png",
-    title: "CEO Featured in Forbes Healthcare Leaders",
+    image: '/assets/news-author.png',
+    title: 'CEO Featured in Forbes Healthcare Leaders',
     description:
-      "Recognition of visionary leadership driving innovation in digital healthcare transformation.",
+      'Recognition of visionary leadership driving innovation in digital healthcare transformation.',
   },
 ];
 
@@ -95,8 +95,8 @@ export default function LatestNewsSection() {
               Our latest <span className="text-[#2874f0]">news</span>
             </h2>
             <p className="font-[300] text-base md:text-lg">
-              SenseOriginal Clinches Most Innovative Startup at Asia's Business
-              Excellence Awards 2024
+              SenseOriginal Clinches Most Innovative Startup at Asia&apos;s Business Excellence
+              Awards 2024
             </p>
           </div>
           {/* Carousel controls and CTA */}
@@ -133,13 +133,12 @@ export default function LatestNewsSection() {
                 key={`${card.id}-${currentIndex}`}
                 initial={{ opacity: 0, x: direction * 100 }}
                 animate={{
-                  opacity:
-                    hoveredCard === null || hoveredCard === index ? 1 : 0.5,
+                  opacity: hoveredCard === null || hoveredCard === index ? 1 : 0.5,
                   x: 0,
                   scale: hoveredCard === index ? 1.05 : 1,
                 }}
                 exit={{ opacity: 0, x: direction * -100 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
                 className="bg-[#E6E9EE] rounded-2xl pb-4 border border-black flex flex-col justify-between min-h-[380px] w-full sm:w-[350px] md:w-[380px] shadow cursor-pointer overflow-hidden"
@@ -158,17 +157,15 @@ export default function LatestNewsSection() {
                     <h3 className="font-[500] text-base md:text-lg mb-2 line-clamp-2">
                       {card.title}
                     </h3>
-                    <p className="text-sm font-[500] line-clamp-3">
-                      {card.description}
-                    </p>
+                    <p className="text-sm font-[500] line-clamp-3">{card.description}</p>
                   </div>
                 </div>
                 <div className="place-self-end pr-4">
                   <button
                     onClick={() =>
                       window.open(
-                        "https://www.apnnews.com/sense-original-clinches-most-innovative-startup-at-asias-business-excellence-awards-2024/",
-                        "_blank"
+                        'https://www.apnnews.com/sense-original-clinches-most-innovative-startup-at-asias-business-excellence-awards-2024/',
+                        '_blank',
                       )
                     }
                     className="bg-gradient-to-b from-[#3E4046] to-[#131314] text-white px-4 py-2 rounded-full font-[500] flex items-center gap-1 self-start hover:opacity-90 hover:scale-105 duration-300 transition-all text-sm"

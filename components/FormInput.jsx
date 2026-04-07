@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   BsEyeSlash,
   BsEye,
@@ -7,7 +7,7 @@ import {
   BsSearch,
   BsPersonPlus,
   BsWrench,
-} from "react-icons/bs";
+} from 'react-icons/bs';
 
 const iconMap = {
   icon1: BsEnvelope,
@@ -47,7 +47,7 @@ const FormInput = ({
   };
 
   return (
-    <div className={`relative w-full ${className || ""}`}>
+    <div className={`relative w-full ${className || ''}`}>
       <span className="text-dark-gray text-base pb-2.5 font-semibold md:text-base">
         {title}
         {mandatory && <span className="text-red-500 ml-1">*</span>}
@@ -55,8 +55,8 @@ const FormInput = ({
 
       <div
         className={`flex items-center border border-gray-200 rounded-md bg-white p-3 mt-1.5 relative
-          ${icon ? "pl-11" : ""}
-          ${disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : ""}
+          ${icon ? 'pl-11' : ''}
+          ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}
           focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-200`}
       >
         {IconComponent && (
@@ -69,7 +69,7 @@ const FormInput = ({
           className={`border-none w-full bg-transparent text-dark-gray text-base font-medium
             focus:outline-none placeholder:text-gray-500 placeholder:font-normal
             disabled:cursor-not-allowed`}
-          type={type === "password" && showPassword ? "text" : type}
+          type={type === 'password' && showPassword ? 'text' : type}
           name={name}
           value={value}
           onChange={handleInputChange}
@@ -82,7 +82,7 @@ const FormInput = ({
           step="0.1"
         />
 
-        {type === "password" && (
+        {type === 'password' && (
           <div
             className="absolute right-4 cursor-pointer flex items-center"
             onClick={togglePasswordVisibility}

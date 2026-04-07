@@ -4,7 +4,6 @@ import { Play } from 'lucide-react';
 import DangalLogo from '../public/images/dangallogo.png';
 import IdeabaazShowImage from '../public/images/ideabuzshow.png';
 
-
 export default function IdeaBaazSection() {
   const [scrollY, setScrollY] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
@@ -34,13 +33,14 @@ export default function IdeaBaazSection() {
     <div
       className="relative min-h-screen  px-4 sm:px-6 md:px-8 lg:px-12"
       style={{
-        background:
-          'linear-gradient(256.67deg, #F9FAFB 21.73%, #EFF6FF 50%, #F3F4F6 78.27%)',
+        background: 'linear-gradient(256.67deg, #F9FAFB 21.73%, #EFF6FF 50%, #F3F4F6 78.27%)',
       }}
     >
       {/* Tag */}
       <div className="inline-block mb-6 sm:mb-8 mt-6">
-        <span className="text-md text-[#FF6900] font-[400] px-8 py-1.5 rounded-xl border border-[#00000066]/40">Featured on IdeaBaaz</span>
+        <span className="text-md text-[#FF6900] font-[400] px-8 py-1.5 rounded-xl border border-[#00000066]/40">
+          Featured on IdeaBaaz
+        </span>
       </div>
 
       {/* Content Grid */}
@@ -49,11 +49,9 @@ export default function IdeaBaazSection() {
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
           {/* Title */}
           <div className="space-y-1" style={{ transform: parallaxX(-0.05) }}>
-          
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-normal text-gray-600 whitespace-nowrap">
-  Where Innovation Gets Funded
-</h2>
-
+              Where Innovation Gets Funded
+            </h2>
           </div>
 
           {/* Dangal Logo (Mobile/Tablet) */}
@@ -75,8 +73,8 @@ export default function IdeaBaazSection() {
           <div className="space-y-6 pt-6 sm:pt-8" style={{ transform: parallax(0.08) }}>
             <h3 className="text-lg sm:text-xl font-semibold text-black">Our Success</h3>
             <p className="text-sm sm:text-base text-black/80 leading-relaxed max-w-md mx-auto lg:mx-0">
-              We pitched our vision to India's leading investors and secured the
-              deal of a lifetime. Watch our journey unfold.
+              We pitched our vision to India&apos;s leading investors and secured the deal of a
+              lifetime. Watch our journey unfold.
             </p>
 
             {/* Thumbnail */}

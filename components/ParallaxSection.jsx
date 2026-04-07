@@ -7,13 +7,13 @@ import { useEffect, useRef, useState } from 'react';
  * - Content parallax (different speeds for different elements)
  * - Fade-in/scale animations
  */
-export const ParallaxSection = ({ 
-  children, 
+export const ParallaxSection = ({
+  children,
   className = '',
   parallaxIntensity = 0.5,
   enableFade = true,
   enableScale = true,
-  enableSlide = true
+  enableSlide = true,
 }) => {
   const sectionRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -68,7 +68,7 @@ export const ParallaxSection = ({
     }
 
     if (enableScale) {
-      const scale = 0.95 + (easedProgress * 0.05);
+      const scale = 0.95 + easedProgress * 0.05;
       transforms.push(`scale: ${scale}`);
     }
 
@@ -80,9 +80,9 @@ export const ParallaxSection = ({
     return {
       opacity: enableFade ? Math.min(1, easedProgress * 1.5) : 1,
       transform: `
-        scale(${enableScale ? 0.95 + (easedProgress * 0.05) : 1})
+        scale(${enableScale ? 0.95 + easedProgress * 0.05 : 1})
         translateY(${enableSlide ? (1 - easedProgress) * 30 : 0}px)
-      `
+      `,
     };
   };
 
@@ -95,7 +95,7 @@ export const ParallaxSection = ({
       style={{
         opacity: styles.opacity,
         transform: styles.transform,
-        transition: 'none'
+        transition: 'none',
       }}
     >
       {children}

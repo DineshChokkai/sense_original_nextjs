@@ -51,7 +51,7 @@ const Loader = ({
             border: '5px solid transparent',
           }}
         />
-        
+
         {/* Centered Image */}
         <Image
           src={imageSrc}

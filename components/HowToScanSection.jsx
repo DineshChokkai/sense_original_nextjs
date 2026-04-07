@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import ideabaazImage from "../public/images/pic.png";
-import frame63 from "../public/images/one.png";
-import frame631 from "../public/images/two.png";
-import { Phone } from "lucide-react";
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import ideabaazImage from '../public/images/pic.png';
+import frame63 from '../public/images/one.png';
+import frame631 from '../public/images/two.png';
+import { Phone } from 'lucide-react';
 
 const HowToScanSection = ({ onOpenContact }) => {
   const textRef = useRef(null);
@@ -14,7 +14,7 @@ const HowToScanSection = ({ onOpenContact }) => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (textRef.current) observer.observe(textRef.current);
@@ -38,21 +38,15 @@ const HowToScanSection = ({ onOpenContact }) => {
 
         {/* Sub Text */}
         <p className="text-[16px] sm:text-[20px] md:text-[24px] font-light text-black mt-4 max-w-[800px]">
-          Schedule a free consultation to see how SenseOriginal can secure your
-          brand and build lasting trust.
+          Schedule a free consultation to see how SenseOriginal can secure your brand and build
+          lasting trust.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 mt-12">
           {/* Button 1 - Book a Call */}
           <button className="flex items-center gap-3 bg-gradient-to-b from-[#3E4046] to-[#131314] border border-[#333] rounded-[36px] px-6 py-3 shadow-inner shadow-white/10 hover:scale-105 transition-transform">
-            <Phone
-              size={10}
-              strokeWidth={2}
-              color="#ffffff"
-              width={20}
-              height={20}
-            />
+            <Phone size={10} strokeWidth={2} color="#ffffff" width={20} height={20} />
 
             <div className="flex flex-col text-left">
               <div className="flex items-center gap-2">
@@ -60,9 +54,7 @@ const HowToScanSection = ({ onOpenContact }) => {
                   href="tel:+919876543210"
                   className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition"
                 >
-                  <span className="text-white text-lg font-normal">
-                    Book a Call
-                  </span>
+                  <span className="text-white text-lg font-normal">Book a Call</span>
                   <Image src={frame63} alt="Arrow" width={16} height={16} className="w-4 h-4" />
                 </a>
               </div>
@@ -79,9 +71,7 @@ const HowToScanSection = ({ onOpenContact }) => {
           >
             <div className="flex flex-col text-left">
               <div className="flex items-center gap-2">
-                <span className="text-black text-lg font-normal">
-                  Book a Demo
-                </span>
+                <span className="text-black text-lg font-normal">Book a Demo</span>
                 <Image src={frame631} alt="Arrow" width={16} height={16} className="w-4 h-4" />
               </div>
             </div>
@@ -99,17 +89,13 @@ const HowToScanSection = ({ onOpenContact }) => {
             bg-gradient-to-b from-[#9F9F9F6B] to-transparent bg-clip-text text-transparent
             text-[12vw] sm:text-[10vw] md:text-[9vw] lg:text-[10vw] xl:text-[12.5vw]
             transition-all duration-[1200ms] ease-out
-            ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-24"
-            }
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'}
           `}
           style={{
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            wordWrap: "break-word",
-            overflowWrap: "break-word",
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            wordWrap: 'break-word',
+            overflowWrap: 'break-word',
           }}
         >
           SENSE ORIGINAL

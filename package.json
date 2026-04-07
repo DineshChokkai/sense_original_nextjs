@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "node scripts/generate-og-image.mjs || true && next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "generate:og": "node scripts/generate-og-image.mjs",
-    "preview": "next dev --host --port 5173"
+    "preview": "next dev --host --port 5173",
+    "lint": "next lint",
+    "lint:fix": "eslint . --ext .js,.jsx --fix",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

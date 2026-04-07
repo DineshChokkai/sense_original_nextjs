@@ -9,7 +9,7 @@ on:
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x]
@@ -84,7 +84,7 @@ jobs:
     needs: [lint-and-build]
     runs-on: ubuntu-latest
     if: always()
-    
+
     steps:
       - name: Build status
         run: |

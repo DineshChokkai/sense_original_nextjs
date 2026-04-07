@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import BG from "../public/images/bg.png";
-import Shoe1 from "../public/images/showe1.png";
-import Shoe2 from "../public/images/showe2.png";
-import Watch from "../public/images/watch.png";
-import Headset from "../public/images/headset.png";
-import Camera from "../public/images/camera.png";
-import Mobile1 from "../public/images/mobile1.png";
-import Mobile2 from "../public/images/mobile2.png";
-import Mobile3 from "../public/images/mobile3.png";
-import Verified2 from "../public/images/verified2.png";
-import Verified1 from "../public/images/veri1.png";
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import BG from '../public/images/bg.png';
+import Shoe1 from '../public/images/showe1.png';
+import Shoe2 from '../public/images/showe2.png';
+import Watch from '../public/images/watch.png';
+import Headset from '../public/images/headset.png';
+import Camera from '../public/images/camera.png';
+import Mobile1 from '../public/images/mobile1.png';
+import Mobile2 from '../public/images/mobile2.png';
+import Mobile3 from '../public/images/mobile3.png';
+import Verified2 from '../public/images/verified2.png';
+import Verified1 from '../public/images/veri1.png';
 
 const ProductVerificationSection = () => {
   const scrollRef = useRef(null);
@@ -19,7 +19,7 @@ const ProductVerificationSection = () => {
   const [scrollProgress, setScrollProgress] = useState({
     step1: 0,
     step2: 0,
-    step3: 0
+    step3: 0,
   });
 
   const [isMobileDevice, setIsMobileDevice] = useState(false);
@@ -27,15 +27,15 @@ const ProductVerificationSection = () => {
   // Safe window check for mobile size
   useEffect(() => {
     const updateDeviceSize = () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         setIsMobileDevice(window.innerWidth < 768);
       }
     };
 
     updateDeviceSize();
-    window.addEventListener("resize", updateDeviceSize);
+    window.addEventListener('resize', updateDeviceSize);
 
-    return () => window.removeEventListener("resize", updateDeviceSize);
+    return () => window.removeEventListener('resize', updateDeviceSize);
   }, []);
 
   // Smooth infinite scroll for product banner
@@ -67,7 +67,7 @@ const ProductVerificationSection = () => {
       if (!sectionRef.current) return;
 
       const section = sectionRef.current;
-      const steps = section.querySelectorAll(".step-container");
+      const steps = section.querySelectorAll('.step-container');
 
       steps.forEach((step, index) => {
         const rect = step.getBoundingClientRect();
@@ -87,22 +87,22 @@ const ProductVerificationSection = () => {
 
         setScrollProgress((prev) => ({
           ...prev,
-          [stepName]: progress
+          [stepName]: progress,
         }));
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const products = [
-    { img: Shoe1, type: "shoe1" },
-    { img: Watch, type: "watch" },
-    { img: Shoe2, type: "shoe2" },
-    { img: Headset, type: "headset" },
-    { img: Camera, type: "camera" }
+    { img: Shoe1, type: 'shoe1' },
+    { img: Watch, type: 'watch' },
+    { img: Shoe2, type: 'shoe2' },
+    { img: Headset, type: 'headset' },
+    { img: Camera, type: 'camera' },
   ];
 
   // Phone 3D transform
@@ -113,14 +113,11 @@ const ProductVerificationSection = () => {
 
     const isMobile = isMobileDevice;
 
-    const translateX = isLeft
-      ? -100 + easedProgress * 100
-      : 100 - easedProgress * 100;
+    const translateX = isLeft ? -100 + easedProgress * 100 : 100 - easedProgress * 100;
 
     const translateY = (isMobile ? 30 : 80) - easedProgress * (isMobile ? 30 : 80);
 
-    const translateZ =
-      (isMobile ? -150 : -300) + easedProgress * (isMobile ? 150 : 300);
+    const translateZ = (isMobile ? -150 : -300) + easedProgress * (isMobile ? 150 : 300);
 
     const rotateY =
       (isMobile ? (isLeft ? -45 : 45) : isLeft ? -90 : 90) +
@@ -140,7 +137,7 @@ const ProductVerificationSection = () => {
       transform: `translateX(${translateX}%) translateY(${translateY}px) translateZ(${translateZ}px)
         rotateY(${rotateY}deg) rotateX(${rotateX}deg) rotateZ(${rotateZ}deg)
         scale(${scale})`,
-      opacity
+      opacity,
     };
   };
 
@@ -161,7 +158,7 @@ const ProductVerificationSection = () => {
     return {
       opacity,
       transform: `translateY(${translateY}px) translateX(${translateX}px) scale(${scale})`,
-      transition: "none"
+      transition: 'none',
     };
   };
 
@@ -177,27 +174,22 @@ const ProductVerificationSection = () => {
       <div className="max-w-[1600px] mx-auto">
         {/* Auto-scroll banner */}
         <div className="mb-16 sm:mb-24 relative h-32 sm:h-40 overflow-hidden">
-          <div
-            ref={scrollRef}
-            className="flex gap-8 sm:gap-12 overflow-x-scroll scrollbar-hide"
-          >
-            {[...products, ...products, ...products, ...products].map(
-              (product, idx) => (
-                <div
-                  key={idx}
-                  className="inline-block flex-shrink-0 transform hover:scale-110 transition-transform duration-300"
-                  style={{ transform: `rotate(${((idx % 3) - 1) * 12}deg)` }}
-                >
-                  <Image
-                    src={product.img}
-                    alt={`Product ${idx + 1}`}
-                    width={224}
-                    height={128}
-                    className="w-32 sm:w-48 lg:w-56 h-20 sm:h-28 lg:h-32 object-contain"
-                  />
-                </div>
-              )
-            )}
+          <div ref={scrollRef} className="flex gap-8 sm:gap-12 overflow-x-scroll scrollbar-hide">
+            {[...products, ...products, ...products, ...products].map((product, idx) => (
+              <div
+                key={idx}
+                className="inline-block flex-shrink-0 transform hover:scale-110 transition-transform duration-300"
+                style={{ transform: `rotate(${((idx % 3) - 1) * 12}deg)` }}
+              >
+                <Image
+                  src={product.img}
+                  alt={`Product ${idx + 1}`}
+                  width={224}
+                  height={128}
+                  className="w-32 sm:w-48 lg:w-56 h-20 sm:h-28 lg:h-32 object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -206,20 +198,18 @@ const ProductVerificationSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div
               className="w-full max-w-[650px] space-y-4 sm:space-y-6 lg:space-y-8 lg:pt-20"
-              style={getTextTransform("step1", 0)}
+              style={getTextTransform('step1', 0)}
             >
               <div
                 className="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full"
-                style={getTextTransform("step1", 0.05)}
+                style={getTextTransform('step1', 0.05)}
               >
-                <span className="text-blue-300 font-semibold text-sm sm:text-base">
-                  STEP 1
-                </span>
+                <span className="text-blue-300 font-semibold text-sm sm:text-base">STEP 1</span>
               </div>
 
               <h2
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
-                style={getTextTransform("step1", 0.1)}
+                style={getTextTransform('step1', 0.1)}
               >
                 Tap Your Phone.
                 <br />
@@ -230,12 +220,12 @@ const ProductVerificationSection = () => {
 
               <p
                 className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed font-light"
-                style={getTextTransform("step1", 0.15)}
+                style={getTextTransform('step1', 0.15)}
               >
-                When a customer taps their smartphone, the tag securely connects
-                to our verification system, authenticating the product in real
-                time. <span className="text-white font-medium">No confusion.</span> Just a single, seamless
-                interaction.
+                When a customer taps their smartphone, the tag securely connects to our verification
+                system, authenticating the product in real time.{' '}
+                <span className="text-white font-medium">No confusion.</span> Just a single,
+                seamless interaction.
               </p>
             </div>
 
@@ -243,13 +233,13 @@ const ProductVerificationSection = () => {
               <div
                 className="relative w-[200px] sm:w-[240px] lg:w-[280px] h-[410px] sm:h-[500px] lg:h-[580px] bg-white rounded-[40px] border-[4px] border-black overflow-hidden shadow-2xl"
                 style={{
-                  ...getMobileTransform("step1", true),
-                  transformStyle: "preserve-3d",
+                  ...getMobileTransform('step1', true),
+                  transformStyle: 'preserve-3d',
                   boxShadow: `0 ${
                     30 * (scrollProgress.step1 || 0)
                   }px ${80 * (scrollProgress.step1 || 0)}px rgba(59,130,246,${
                     0.4 * (scrollProgress.step1 || 0)
-                  })`
+                  })`,
                 }}
               >
                 <Image
@@ -271,13 +261,13 @@ const ProductVerificationSection = () => {
               <div
                 className="relative w-[200px] sm:w-[240px] lg:w-[280px] h-[410px] sm:h-[500px] lg:h-[580px] bg-gray-800 rounded-[40px] border-[4px] border-black overflow-hidden shadow-2xl"
                 style={{
-                  ...getMobileTransform("step2", false),
-                  transformStyle: "preserve-3d",
+                  ...getMobileTransform('step2', false),
+                  transformStyle: 'preserve-3d',
                   boxShadow: `0 ${
                     30 * (scrollProgress.step2 || 0)
                   }px ${80 * (scrollProgress.step2 || 0)}px rgba(168,85,247,${
                     0.4 * (scrollProgress.step2 || 0)
-                  })`
+                  })`,
                 }}
               >
                 <Image
@@ -292,11 +282,11 @@ const ProductVerificationSection = () => {
 
             <div
               className="w-full max-w-[650px] space-y-4 sm:space-y-6 lg:space-y-8 lg:pt-20 order-1 lg:order-2"
-              style={getTextTransform("step2", 0)}
+              style={getTextTransform('step2', 0)}
             >
               <div
                 className="inline-flex items-center gap-3"
-                style={getTextTransform("step2", 0.05)}
+                style={getTextTransform('step2', 0.05)}
               >
                 <Image
                   src={Verified1}
@@ -306,15 +296,13 @@ const ProductVerificationSection = () => {
                   className="w-12 sm:w-16 lg:w-20"
                 />
                 <div className="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full">
-                  <span className="text-purple-300 font-semibold text-sm sm:text-base">
-                    STEP 2
-                  </span>
+                  <span className="text-purple-300 font-semibold text-sm sm:text-base">STEP 2</span>
                 </div>
               </div>
 
               <h2
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
-                style={getTextTransform("step2", 0.1)}
+                style={getTextTransform('step2', 0.1)}
               >
                 Encrypted. Secure.
                 <br />
@@ -325,13 +313,11 @@ const ProductVerificationSection = () => {
 
               <p
                 className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed font-light"
-                style={getTextTransform("step2", 0.15)}
+                style={getTextTransform('step2', 0.15)}
               >
-                If genuine, the verification signal flashes, proving your
-                product's authenticity instantly.{" "}
-                <span className="text-white font-medium">
-                  Every scan is encrypted end-to-end,
-                </span>{" "}
+                If genuine, the verification signal flashes, proving your product&apos;s
+                authenticity instantly.{' '}
+                <span className="text-white font-medium">Every scan is encrypted end-to-end,</span>{' '}
                 ensuring no cloning or tampering is possible.
               </p>
             </div>
@@ -343,11 +329,11 @@ const ProductVerificationSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div
               className="w-full max-w-[650px] space-y-4 sm:space-y-6 lg:space-y-8"
-              style={getTextTransform("step3", 0)}
+              style={getTextTransform('step3', 0)}
             >
               <div
                 className="inline-flex items-center gap-3"
-                style={getTextTransform("step3", 0.05)}
+                style={getTextTransform('step3', 0.05)}
               >
                 <Image
                   src={Verified2}
@@ -357,15 +343,13 @@ const ProductVerificationSection = () => {
                   className="w-12 sm:w-16 lg:w-20"
                 />
                 <div className="px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full">
-                  <span className="text-green-300 font-semibold text-sm sm:text-base">
-                    STEP 3
-                  </span>
+                  <span className="text-green-300 font-semibold text-sm sm:text-base">STEP 3</span>
                 </div>
               </div>
 
               <h2
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
-                style={getTextTransform("step3", 0.1)}
+                style={getTextTransform('step3', 0.1)}
               >
                 Instant Proof.
                 <br />
@@ -376,12 +360,12 @@ const ProductVerificationSection = () => {
 
               <p
                 className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed font-light"
-                style={getTextTransform("step3", 0.15)}
+                style={getTextTransform('step3', 0.15)}
               >
-                Once verified, the product details appear on-screen —{" "}
+                Once verified, the product details appear on-screen —{' '}
                 <span className="text-white font-medium">
                   brand name, origin, authenticity badge, and story.
-                </span>{" "}
+                </span>{' '}
                 Your customers get instant confidence. You get lifelong loyalty.
               </p>
             </div>
@@ -390,13 +374,13 @@ const ProductVerificationSection = () => {
               <div
                 className="relative w-[200px] sm:w-[240px] lg:w-[280px] h-[410px] sm:h-[500px] lg:h-[580px] bg-white rounded-[40px] border-[4px] border-black overflow-hidden shadow-2xl"
                 style={{
-                  ...getMobileTransform("step3", true),
-                  transformStyle: "preserve-3d",
+                  ...getMobileTransform('step3', true),
+                  transformStyle: 'preserve-3d',
                   boxShadow: `0 ${
                     30 * (scrollProgress.step3 || 0)
                   }px ${80 * (scrollProgress.step3 || 0)}px rgba(34,197,94,${
                     0.4 * (scrollProgress.step3 || 0)
-                  })`
+                  })`,
                 }}
               >
                 <Image
@@ -414,14 +398,9 @@ const ProductVerificationSection = () => {
         {/* Download Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12 pb-8">
           <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-5 rounded-full flex items-center justify-center gap-3 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 font-semibold text-lg">
-            <svg 
-  className="w-7 h-7" 
-  viewBox="0 0 24 24" 
-  fill="currentColor"
->
-  <path d="M17.6 8.04l1.3-2.25a.5.5 0 10-.86-.5l-1.33 2.3A6.98 6.98 0 0012 6c-1.72 0-3.3.62-4.71 1.59L5.96 5.3a.5.5 0 10-.86.5l1.28 2.22A6.96 6.96 0 005 13v3a1 1 0 001 1h1v2a1 1 0 102 0v-2h6v2a1 1 0 102 0v-2h1a1 1 0 001-1v-3a6.96 6.96 0 00-2.4-4.96zM9 10a1 1 0 110 2 1 1 0 010-2zm6 0a1 1 0 110 2 1 1 0 010-2z" />
-</svg>
-
+            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.6 8.04l1.3-2.25a.5.5 0 10-.86-.5l-1.33 2.3A6.98 6.98 0 0012 6c-1.72 0-3.3.62-4.71 1.59L5.96 5.3a.5.5 0 10-.86.5l1.28 2.22A6.96 6.96 0 005 13v3a1 1 0 001 1h1v2a1 1 0 102 0v-2h6v2a1 1 0 102 0v-2h1a1 1 0 001-1v-3a6.96 6.96 0 00-2.4-4.96zM9 10a1 1 0 110 2 1 1 0 010-2zm6 0a1 1 0 110 2 1 1 0 010-2z" />
+            </svg>
             Download Android App
           </button>
 

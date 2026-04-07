@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import Image from "next/image";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ResultsSection() {
   const controls1 = useAnimation();
@@ -19,13 +19,13 @@ export default function ResultsSection() {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              controls.start("visible");
+              controls.start('visible');
             } else {
-              controls.start("hidden");
+              controls.start('hidden');
             }
           });
         },
-        { threshold: 0.2 }
+        { threshold: 0.2 },
       );
 
       if (ref.current) {
@@ -54,7 +54,7 @@ export default function ResultsSection() {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: "easeIn",
+        ease: 'easeIn',
       },
     },
     visible: {
@@ -62,7 +62,7 @@ export default function ResultsSection() {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -96,26 +96,18 @@ export default function ResultsSection() {
           >
             {/* FIXED IMAGE */}
             <div className="absolute top-20 md:top-28 left-0 z-10 w-16 md:w-auto">
-              <Image
-                className="w-full"
-                src="/images/arrow.png"
-                alt="join"
-                width={90}
-                height={90}
-              />
-               
+              <Image className="w-full" src="/images/arrow.png" alt="join" width={90} height={90} />
             </div>
 
             <p className="text-[#1D191F] font-[400] text-sm md:text-md mb-4 lg:text-lg">
-              Every scan verifies product authenticity instantly, eliminating
-              fake product uncertainty and rebuilding buyer confidence.
+              Every scan verifies product authenticity instantly, eliminating fake product
+              uncertainty and rebuilding buyer confidence.
             </p>
 
             <div>
               <div className="text-4xl md:text-5xl font-[400] mb-1">100%</div>
               <p className="text-sm md:text-md font-[400] text-[#555555] lg:text-lg">
-                <span className="text-blue-600">Reduction</span> in Counterfeit
-                Confusion
+                <span className="text-blue-600">Reduction</span> in Counterfeit Confusion
               </p>
             </div>
           </motion.div>
@@ -134,12 +126,9 @@ export default function ResultsSection() {
                 Turning lost revenue into loyal customers.
               </p>
               <div className="flex flex-col gap-1 mb-2 lg:text-lg">
-                <span className="text-3xl md:text-4xl font-[400] leading-none">
-                  +30%
-                </span>
+                <span className="text-3xl md:text-4xl font-[400] leading-none">+30%</span>
                 <a href="#" className="text-xs md:text-sm">
-                  <span className="text-blue-500">Recovered Sales</span> in
-                  Pilot Markets
+                  <span className="text-blue-500">Recovered Sales</span> in Pilot Markets
                 </a>
               </div>
               {/* Bar Chart Mockup */}
@@ -161,8 +150,8 @@ export default function ResultsSection() {
               className="bg-white p-4 md:p-4 pb-12 md:pb-20 rounded-xl border border-black/40 flex flex-col justify-between"
             >
               <p className="text-[#1D191F] text-sm md:text-md mb-4 lg:text-lg">
-                <span className="text-[#155DFC]">Real-time monitoring</span> of
-                scan patterns and counterfeit alerts.
+                <span className="text-[#155DFC]">Real-time monitoring</span> of scan patterns and
+                counterfeit alerts.
               </p>
             </motion.div>
           </div>
@@ -181,16 +170,11 @@ export default function ResultsSection() {
             </p>
             <div className="flex flex-col gap-2">
               <div className="text-3xl md:text-4xl font-[400]">45+</div>
-              <a
-                href="#"
-                className="text-sm md:text-md font-[400] text-[#B2B2B2] lg:text-lg"
-              >
-                Cities With{" "}
-                <span className="text-[#2F4EFF]">Verified Scans</span>
+              <a href="#" className="text-sm md:text-md font-[400] text-[#B2B2B2] lg:text-lg">
+                Cities With <span className="text-[#2F4EFF]">Verified Scans</span>
               </a>
               <p className="text-sm md:text-md font-[400] text-[#B2B2B2]">
-                Real Data.{" "}
-                <span className="text-[#2F4EFF]">Real Protection</span>
+                Real Data. <span className="text-[#2F4EFF]">Real Protection</span>
               </p>
             </div>
             <div className="relative p-2 mt-2 md:mt-4">

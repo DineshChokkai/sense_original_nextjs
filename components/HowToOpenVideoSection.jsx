@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
-import VideoThumbnail from "../public/images/howtoscan.png";
+import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
+import VideoThumbnail from '../public/images/howtoscan.png';
 
 const HowToScan = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const HowToScan = () => {
   // Handle scroll-based parallax effect (desktop only)
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
-    
+
     if (isMobile) {
       // For mobile, just set full scale and opacity
       setScale(1);
@@ -24,15 +24,15 @@ const HowToScan = () => {
 
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       // Calculate the center of the element and viewport
       const elementCenter = rect.top + rect.height / 2;
       const viewportCenter = windowHeight / 2;
-      
+
       // Calculate distance from center (0 = perfect center)
       const distanceFromCenter = Math.abs(elementCenter - viewportCenter);
       const maxDistance = windowHeight / 2 + rect.height / 2;
-      
+
       // Progress from 0 (far) to 1 (center)
       const centerProgress = Math.max(0, 1 - distanceFromCenter / maxDistance);
 
@@ -45,20 +45,20 @@ const HowToScan = () => {
     };
 
     handleScroll(); // Initial call
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent background scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
@@ -117,12 +117,7 @@ const HowToScan = () => {
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
               aria-label="Close video"
             >
-              <svg
-                className="w-10 h-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
