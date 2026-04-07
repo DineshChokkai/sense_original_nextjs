@@ -26,6 +26,7 @@ const awardsData = [
   },
 ];
 
+
 export default function AwardsAchievements() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
